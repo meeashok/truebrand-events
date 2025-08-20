@@ -20,10 +20,18 @@ class TelegramClient:
         response.raise_for_status()
         return response.json()
 
+    def get_chat_info(self, chat_id: str) -> Dict[str, Any]:
+        url = f"{self.base_url}/getChat"
+        payload = {"chat_id": chat_id}
+        
+        response = requests.post(url, json=payload)
+        response.raise_for_status()
+        return response.json()
+
     def format_post(self, post: Dict[str, Any]) -> str:
         url = post.get("url", "")
 
-        message = "New Post\n\n\n"
+        message = "New Post\n\n"
         if url:
             message += url
 

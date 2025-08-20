@@ -63,3 +63,4 @@ logs/
 
 # Claude configuration (keep local only)
 .claude/
+CLAUDE.local.md
